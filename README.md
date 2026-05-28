@@ -198,6 +198,141 @@ GitHub 내 **Fork 레포지토리** 이동
 
 ---
 
+---
+
+# 🔄 7. 최신 코드 동기화하기 (Sync Fork)
+
+다른 팀원이 작업한 코드가 `main` 브랜치에 합쳐졌다면,  
+내 Fork 레포지토리와 로컬 프로젝트도 최신 상태로 업데이트해야 합니다.
+
+---
+
+## 📌 GitHub 웹에서 Sync Fork 하기
+
+본인 Fork 레포지토리 접속
+
+↓
+
+상단의
+
+🔄 **Sync fork**
+
+버튼 클릭
+
+↓
+
+✅ **Update branch**
+
+클릭
+
+---
+
+## 📌 로컬 프로젝트 최신화
+
+VS Code 터미널에서 실행
+
+```bash
+# main 브랜치 이동
+git checkout main
+
+# 최신 코드 가져오기
+git pull origin main
+```
+
+---
+
+# 🌱 8. 새로운 작업 시작 전 필수 과정
+
+새 기능 개발 전에는 항상 최신 코드를 먼저 받아와야 합니다.
+
+```bash
+git checkout main
+git pull origin main
+```
+
+이후 새로운 브랜치 생성
+
+```bash
+git checkout -b 본인아이디/새기능명
+```
+
+예시
+
+```bash
+git checkout -b seokhyun/login
+```
+
+---
+
+# ⚠️ 9. Pull Request 이후 주의사항
+
+PR(Pull Request)을 보냈다고 바로 끝난 것이 아닙니다.
+
+---
+
+## ✅ PR 승인 전까지 해야 할 일
+
+- 팀원의 리뷰 확인
+- 충돌(conflict) 발생 여부 체크
+- 수정 요청 시 다시 커밋 후 push
+
+---
+
+## 📌 수정 후 다시 업로드하는 방법
+
+```bash
+git add .
+git commit -m "Fix: 리뷰 반영"
+git push origin 본인아이디/기능명
+```
+
+⚠️ 같은 브랜치에 push 하면 PR에 자동 반영됩니다.
+
+---
+
+# 🚨 10. 충돌(Conflict) 발생 시
+
+여러 명이 같은 파일을 수정하면 충돌이 발생할 수 있습니다.
+
+당황하지 말고:
+
+1. 팀원에게 먼저 공유
+2. 최신 main 코드 pull
+3. 충돌 부분 수정
+4. 다시 commit & push
+
+순서로 해결하면 됩니다.
+
+---
+
+# 📌 최종 협업 흐름 요약
+
+```text
+Fork
+ ↓
+Clone
+ ↓
+Branch 생성
+ ↓
+기능 개발
+ ↓
+Commit
+ ↓
+Push
+ ↓
+Pull Request 생성
+ ↓
+코드 리뷰
+ ↓
+Merge
+ ↓
+Sync Fork
+ ↓
+다음 기능 개발
+```
+
+---
+
 # 📌 협업 규칙
 
 - `main` 직접 수정 금지
