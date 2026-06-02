@@ -133,6 +133,13 @@
   min-height: 0;
 }
 
+.map-tab-content .map-tab-nav-actions {
+  max-width: none;
+  margin: 0 0 16px;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
 .map-section-title {
   margin: 0 0 14px;
   font-size: 12px;

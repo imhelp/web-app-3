@@ -1,0 +1,23 @@
+.Menu-Nav-Actions {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.Menu-Nav-Actions button {
+    padding: 12px 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    background-color: #ffffff;
+    color: #495057;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.Menu-Nav-Actions button:hover {
+    background-color: #f8f9fa;
+}

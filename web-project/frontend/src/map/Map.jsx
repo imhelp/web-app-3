@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../MenuReView/NavActions.css';
 import './Map_style.css';
 import {
   cafeteriaLocations,
@@ -15,6 +17,7 @@ import {
 } from './mapUtils';
 
 function Map() {
+  const navigate = useNavigate();
   const mapElement = useRef(null);
   const mapRef = useRef(null);
   const currentPolyline = useRef(null);
@@ -126,6 +129,18 @@ function Map() {
           </div>
 
           <div className="map-tab-content">
+            <div className="Menu-Nav-Actions map-tab-nav-actions">
+              <button type="button" onClick={() => navigate('/')}>
+                메인
+              </button>
+              <button type="button" onClick={() => navigate('/menu')}>
+                메뉴
+              </button>
+              <button type="button" onClick={() => navigate('/congestion')}>
+                혼잡도
+              </button>
+            </div>
+
             <p className="map-section-title">식당 선택</p>
 
             <div className="map-cafeteria-list">
