@@ -1,0 +1,216 @@
+/* 전체 레이아웃 정리 */
+.App1 {
+  background-color: #fafafa;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Malgun Gothic', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*상단 대시보드: 가로 4칸 정렬 레이아웃*/
+.dashboard_horiz_container {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 30px;
+}
+
+.dash_item {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 15px 10px;
+  text-align: center;
+  border: 1px solid #eef0f2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.dash_label {
+  font-size: 13px;
+  color: #888888;
+  margin: 0 0 8px 0;
+}
+
+.dash_value {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+  margin: 0;
+}
+
+.dash_value_highlight {
+  font-size: 18px;
+  font-weight: bold;
+  color: #222222;
+  margin: 0;
+}
+
+/*추천구역 강조*/
+.dashboard_horiz_container .recommend_box {
+  background-color: #fffde7;
+  border: 1px solid #fff176;
+}
+
+.dash_value_recommend {
+  font-size: 16px;
+  font-weight: bold;
+  color: #e65100;
+  margin: 0;
+}
+
+/*구역별 리스트, 검색창 세팅*/
+.list_main_wrapper {
+  width: 100%;
+  max-width: 700px;
+}
+
+.list_container {
+  width: 100%;
+}
+
+.list_wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.searchbar {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/*구역별 카드 디자인*/
+.restaurant_card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #eef0f2;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.card_header_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.card_title_area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 좌측 상태 표시등*/
+.status_dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.status_dot.low { background-color: #2ecc71; }
+.status_dot.medium { background-color: #f1c40f; }
+.status_dot.high { background-color: #e74c3c; }
+.status_dot.none { background-color: #95a5a6; }
+
+.card_zone_name {
+  margin: 0;
+  font-size: 18px;
+  color: #222222;
+}
+
+.card_data_area {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card_people_num {
+  color: #555555;
+  margin-right: 10px;
+}
+
+.card_percent_num {
+  color: #333333;
+}
+
+/*실시간 확률 게이지 바*/
+.gauge_bar_track {
+  width: 100%;
+  height: 8px;
+  background-color: #f1f3f5;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.gauge_bar_fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.4s ease-out;
+}
+.gauge_bar_fill.low { background-color: #2ecc71; }
+.gauge_bar_fill.medium { background-color: #f1c40f; }
+.gauge_bar_fill.high { background-color: #e74c3c; }
+.gauge_bar_fill.none { background-color: #e2e8f0; width: 0% !important; }
+
+/*입장/퇴장 전용 버튼 스타일*/
+.card_button_container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+}
+
+.button_row_top, .button_row_bottom {
+  flex: 1;
+}
+
+.btn_action {
+  background-color: #ffffff !important;
+  width: 100%;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 11px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.btn_action.enter_btn {
+  border: 2px solid #3498db !important;
+  color: #3498db !important;
+}
+.btn_action.enter_btn:hover {
+  background-color: #f2f8fc !important;
+}
+
+.btn_action.exit_btn {
+  border: 2px solid #34495e !important;
+  color: #34495e !important;
+}
+.btn_action.exit_btn:hover {
+  background-color: #f5f7f9 !important;
+}
+
+/* 구역 이름 옆 상태 배지*/
+.status_text_badge {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.status_text_badge.low { background-color: #e8f5e9; color: #2ecc71; }
+.status_text_badge.medium { background-color: #fff3e0; color: #f1c40f; }
+.status_text_badge.high { background-color: #ffebee; color: #e74c3c; }
