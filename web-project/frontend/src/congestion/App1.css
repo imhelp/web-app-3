@@ -9,6 +9,13 @@
   align-items: center;
 }
 
+.App1 > .Menu-Nav-Actions {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
 /*상단 대시보드: 가로 4칸 정렬 레이아웃*/
 .dashboard_horiz_container {
   display: flex;

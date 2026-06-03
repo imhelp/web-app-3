@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MenuCard from "./MenuCard"; // 💡 방금 만든 MenuCard 컴포넌트를 불러옵니다.
 import "./TopMenu.css";
+import "./NavActions.css";
 
 function TopMenu() {
+    const navigate = useNavigate();
+
     /* 1. 통합 메뉴 데이터 */
     const initialTotalMenuList = [                                       
         { id: 1, name: "돈까스", price: "5000원", store: "가게명1" },
@@ -73,6 +77,17 @@ function TopMenu() {
 
     return (
         <div>
+            <div className="Menu-Nav-Actions">
+                <button type="button" onClick={() => navigate("/")}>
+                    메인
+                </button>
+                <button type="button" onClick={() => navigate("/map")}>
+                    길찾기
+                </button>
+                <button type="button" onClick={() => navigate("/congestion")}>
+                    혼잡도
+                </button>
+            </div>
             {/* 1. 가게명 필터 */}
             <div className="Store">
                 {["전체", "가게명1", "가게명2", "가게명3", "가게명4"].map((storeName) => (

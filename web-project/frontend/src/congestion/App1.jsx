@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./App1.css";
-import Header from "./Header";
+import "../MenuReView/NavActions.css";
+import Header from "../MenuReView/Header";
 import List from "./List";
 
 //인원수 적어두면 자동으로 초기 상태 계산
@@ -19,6 +21,7 @@ const getZoneStatus = (people) => {
 };
 
 export default function App1() {
+  const navigate = useNavigate();
   const [restaurants, setRestaurants] = useState([]);
 
   //인원수 맞춰 여유/보통/혼잡 계산
@@ -102,6 +105,18 @@ export default function App1() {
   return (
     <div className="App1">
       <Header />
+
+      <div className="Menu-Nav-Actions">
+        <button type="button" onClick={() => navigate('/')}>
+          메인
+        </button>
+        <button type="button" onClick={() => navigate('/menu')}>
+          메뉴
+        </button>
+        <button type="button" onClick={() => navigate('/map')}>
+          지도
+        </button>
+      </div>
       
       <div className="dashboard_horiz_container">
         <div className="dash_item recommend_box">
