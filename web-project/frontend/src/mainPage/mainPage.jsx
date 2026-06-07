@@ -20,6 +20,9 @@ export default function MainPage() {
         <button type="button" onClick={() => navigate('/congestion')}>
           혼잡도
         </button>
+        <button type="button" onClick={() => navigate('/login')}>
+          로그인
+        </button>
       </div>
     </div>
   );

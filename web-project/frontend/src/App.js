@@ -5,6 +5,8 @@ import TopMenu from './MenuReView/TopMenu';
 import Map from './map/Map';
 import App1 from './congestion/App1';
 import MainPage from './mainPage/mainPage';
+import Login from './login/Login';
+import SignUp from './login/SignUp';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
       />
       <Route path="/map" element={<Map />} />
       <Route path="/congestion" element={<App1 />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
     </Routes>
   );
 }

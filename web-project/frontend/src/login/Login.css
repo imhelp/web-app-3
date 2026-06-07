@@ -1,0 +1,65 @@
+body {
+    background-color: lightgray;
+}
+
+.box {
+    width: 400px;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 40px;
+    font-size: 50px;
+    color: deepskyblue;
+}
+
+input {
+    width: 350px;
+    height: 45px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    border: 2px solid lightgray;
+    border-radius: 30px;
+    font-size: 18px;
+}
+
+button {
+    width: 370px;
+    height: 50px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 30px;
+    background-color: deepskyblue;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.autologin {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.check {
+    margin:10px;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.join {
+    font-size: 16px;
+    cursor: pointer;
+}
