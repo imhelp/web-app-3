@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Login.css";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 //import { GoogleLogin } from "@react-oauth/google";
 function Login() {
 
@@ -63,7 +63,7 @@ function Login() {
 
     return (
         <div className="box">
-            <h1>로그인</h1>
+            <h1>로그인/회원가입</h1>
 
             <input
                 type="text"
@@ -88,7 +88,14 @@ function Login() {
                 로그인
             </button>
 
-{/*             <GoogleLogin
+            <button
+                type="button"
+                onClick={() => navigate("/")}
+            >
+                메인화면으로
+            </button>
+
+            {/*             <GoogleLogin
                 onSuccess={(response) => {
 
                     localStorage.setItem(
@@ -121,12 +128,8 @@ function Login() {
                 >
                     회원가입
                 </span>
-
             </div>
-
-
         </div>
-
     );
 }
 

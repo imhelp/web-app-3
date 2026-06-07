@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 
-function SignUp({ setIsSignUp }) {
+function SignUp() {
 
     const [studentId, setStudentId] = useState("");
     const [password, setPassword] = useState("");
@@ -12,7 +12,7 @@ function SignUp({ setIsSignUp }) {
         try {
 
             const response = await fetch(
-                "http://localhost:5000/signup",
+                "http://localhost:8080/signup",
                 {
                     method: "POST",
                     headers: {
@@ -31,7 +31,7 @@ function SignUp({ setIsSignUp }) {
 
                 alert("회원가입 성공");
 
-                setIsSignUp(false);
+                navigate("/login");
 
             } else {
 
