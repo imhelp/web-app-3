@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
-//import { GoogleLogin } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+
 function Login() {
 
     const [studentId, setStudentId] = useState("");
@@ -87,6 +89,25 @@ function Login() {
             <button onClick={handleLogin}>
                 로그인
             </button>
+            <GoogleLogin
+                onSuccess={(credentialResponse) => {
+
+                    const decoded = jwtDecode(
+                        credentialResponse.credential
+                    );
+
+                    localStorage.setItem(
+                        "studentId",
+                        decoded.email
+                    );
+
+                    navigate("/");
+                }}
+
+                onError={() => {
+                    alert("구글 로그인 실패");
+                }}
+            />
 
             <button
                 type="button"
