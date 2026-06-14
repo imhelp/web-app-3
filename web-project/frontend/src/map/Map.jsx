@@ -130,7 +130,7 @@ function Map() {
 
           <div className="map-tab-content">
             <div className="Menu-Nav-Actions map-tab-nav-actions">
-              <button type="button" onClick={() => navigate('/')}>
+              <button type="button" onClick={() => navigate('/main')}>
                 메인
               </button>
               <button type="button" onClick={() => navigate('/menu')}>

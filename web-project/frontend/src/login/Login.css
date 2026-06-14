@@ -1,65 +1,187 @@
-body {
-    background-color: lightgray;
+*, *::before, *::after { box-sizing: border-box; }
+
+@keyframes lp-blob {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.12) translate(-2%, 2%); }
+}
+@keyframes lp-fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── 전체 화면 ── */
+.lp {
+  position: relative;
+  width: 100%; height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+
+  background-color: #dde6ff;
+  background-image: radial-gradient(circle at 1px 1px, #b9c8f8 1px, transparent 0);
+  background-size: 28px 28px;
+}
+
+/* 컬러 블롭 */
+.lp::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 70% at 8% 60%,  rgba(37,99,235,0.35)  0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 92% 12%,  rgba(124,58,237,0.28) 0%, transparent 52%),
+    radial-gradient(ellipse 42% 50% at 50% 95%,  rgba(16,185,129,0.18) 0%, transparent 50%);
+  animation: lp-blob 20s ease-in-out infinite alternate;
+}
+
+/* 블러 오버레이 */
+.lp::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: rgba(220,230,255,0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ── 모달 카드 ── */
 .box {
-    width: 400px;
-    margin: 100px auto;
-    padding: 40px;
-    border-radius: 10px;
-    background-color: white;
-    text-align: center;
+  position: relative; z-index: 2;
+  width: 100%; max-width: 520px;
+  padding: 56px 52px;
+  border-radius: 24px;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255,255,255,0.9);
+  box-shadow:
+    0 32px 80px rgba(30,50,150,0.18),
+    0 2px 6px rgba(0,0,0,0.06),
+    inset 0 1px 0 rgba(255,255,255,1);
+  animation: lp-fade 0.45s cubic-bezier(.4,0,.2,1) both;
 }
 
-h1 {
-    margin-bottom: 40px;
-    font-size: 50px;
-    color: deepskyblue;
+/* 상단 로고 영역 */
+.lp-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
 }
 
-input {
-    width: 350px;
-    height: 45px;
-    margin-bottom: 15px;
-    padding-left: 15px;
-    border: 2px solid lightgray;
-    border-radius: 30px;
-    font-size: 18px;
+.lp-brand-icon {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
 }
 
-button {
-    width: 370px;
-    height: 50px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 30px;
-    background-color: deepskyblue;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
+.lp-brand-name {
+  font-size: 1.25rem; font-weight: 900;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, #0A0A0A 30%, #2563EB 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
+/* 타이틀 */
+.box h1 {
+  margin: 0 0 10px;
+  font-size: 2.2rem; font-weight: 900;
+  color: #0A0A0A; letter-spacing: -0.05em;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.lp-subtitle {
+  font-size: 1rem; color: #9CA3AF; font-weight: 400;
+  margin: 0 0 32px; text-align: left; line-height: 1.6;
+}
+
+/* 입력 필드 */
+.box input[type="text"],
+.box input[type="password"] {
+  display: block; width: 100%; height: 52px;
+  margin-bottom: 10px; padding: 0 20px;
+  border: 1.5px solid #E5E7EB; border-radius: 12px;
+  font-size: 1rem; background: #fafafa; color: #111;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+  box-sizing: border-box; font-family: inherit;
+}
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+  border-color: #2563EB;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+.box input::placeholder { color: #C4C4C4; }
+
+/* 로그인 버튼 */
+.box button {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 52px; margin-top: 8px;
+  border: none; border-radius: 12px;
+  background: linear-gradient(135deg, #2563EB 0%, #1d4ed8 100%);
+  color: #fff; font-size: 1rem; font-weight: 700;
+  cursor: pointer; letter-spacing: -0.01em;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 18px rgba(37,99,235,0.32);
+  font-family: inherit; box-sizing: border-box;
+}
+.box button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(37,99,235,0.44);
+}
+
+/* 구글 버튼 */
+.box .btn-google {
+  background: #fff !important;
+  color: #374151 !important;
+  border: 1.5px solid #E5E7EB !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+  gap: 10px; font-weight: 600; font-size: 1rem;
+  margin-top: 0;
+}
+.box .btn-google:hover {
+  background: #F9FAFB !important;
+  border-color: #D1D5DB !important;
+  transform: none !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.09) !important;
+}
+
+/* 구분선 */
+.divider {
+  display: flex; align-items: center; gap: 12px;
+  margin: 20px 0 16px; color: #D1D5DB; font-size: 0.88rem;
+  font-family: inherit;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; height: 1px; background: #EBEBEB;
+}
+
+/* 하단 */
 .bottom {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  margin-top: 20px; display: flex;
+  justify-content: space-between; align-items: center;
+  font-family: inherit;
 }
-
 .autologin {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
+  display: flex; align-items: center; gap: 7px;
+  font-size: 0.95rem; color: #6B7280; font-family: inherit;
 }
-
 .check {
-    margin:10px;
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
+  width: 16px; height: 16px;
+  accent-color: #2563EB; cursor: pointer; margin: 0;
 }
-
 .join {
-    font-size: 16px;
-    cursor: pointer;
+  font-size: 0.95rem; color: #2563EB;
+  font-weight: 700; cursor: pointer; font-family: inherit;
+}
+.join:hover { text-decoration: underline; }
+
+/* ── 작은 화면 ── */
+@media (max-width: 580px) {
+  .box { padding: 44px 28px; max-width: calc(100vw - 32px); }
+  .box h1 { font-size: 1.65rem; }
 }

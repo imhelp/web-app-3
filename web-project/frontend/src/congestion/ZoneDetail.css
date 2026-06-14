@@ -1,0 +1,93 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+
+.zd {
+  min-height: 100vh;
+  background-color: #eef2ff;
+  background-image: radial-gradient(circle at 1px 1px, #c7d2fe 1px, transparent 0);
+  background-size: 26px 26px;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.zd-main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 48px 80px;
+  animation: fadeUp 0.4s ease both;
+}
+
+.zd-loading {
+  display: flex; justify-content: center; align-items: center;
+  height: 300px; color: #9CA3AF; font-size: 1rem;
+}
+
+/* 뒤로 가기 */
+.zd-back {
+  display: inline-flex; align-items: center;
+  padding: 8px 18px; border-radius: 9px;
+  border: 1px solid #E5E7EB;
+  background: rgba(255,255,255,0.85);
+  color: #6B7280; font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; margin-bottom: 28px;
+  font-family: inherit;
+  transition: border-color 0.15s, color 0.15s;
+  width: auto;
+}
+.zd-back:hover { border-color: #9CA3AF; color: #111; }
+
+/* 헤더 행 */
+.zd-hdr {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.zd-hdr-left {
+  display: flex; align-items: center; gap: 7px;
+}
+
+.zd-building-dot {
+  width: 9px; height: 9px; border-radius: 999px; flex-shrink: 0;
+}
+
+.zd-building-name {
+  font-size: 1rem; font-weight: 600; color: #6B7280;
+}
+
+.zd-status-badge {
+  font-size: 0.85rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 999px;
+}
+.zd-status-badge.closed { background: #F3F4F6; color: #9CA3AF; }
+
+/* 구역 이름 */
+.zd-zone-name {
+  font-size: 2.4rem; font-weight: 900;
+  letter-spacing: -0.05em; color: #0A0A0A;
+  margin-bottom: 24px;
+}
+
+/* 혼잡도 카드 */
+.zd-card {
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.07);
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06), inset 4px 0 0 var(--bc, transparent);
+  margin-bottom: 20px;
+}
+
+.zd-report-info {
+  font-size: 0.92rem; color: #9CA3AF; font-weight: 500;
+  margin-bottom: 16px; line-height: 1.4;
+  display: flex; align-items: center;
+}
+.zd-report-info strong { color: #374151; font-weight: 700; }
+
+/* 반응형 */
+@media (max-width: 640px) {
+  .zd-main { padding: 32px 20px 60px; }
+  .zd-zone-name { font-size: 1.8rem; }
+}

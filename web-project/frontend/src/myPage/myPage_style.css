@@ -1,0 +1,145 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+
+.myp {
+  min-height: 100vh;
+  background-color: #eef2ff;
+  background-image: radial-gradient(circle at 1px 1px, #c7d2fe 1px, transparent 0);
+  background-size: 26px 26px;
+  font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 헤더 */
+.myp-hdr {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 56px; height: 76px;
+  background: rgba(248,250,252,0.88);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.07);
+  backdrop-filter: blur(24px);
+}
+
+.myp-logo {
+  font-size: 1.3rem; font-weight: 900; letter-spacing: -0.05em; cursor: pointer;
+  background: linear-gradient(135deg, #0A0A0A 30%, #2563EB 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.myp-back {
+  width: auto !important;
+  padding: 8px 18px; border-radius: 9px; border: 1px solid #E5E7EB;
+  background: #fff; color: #6B7280; font-size: 0.95rem; font-weight: 600;
+  cursor: pointer; transition: border-color 0.15s, color 0.15s;
+}
+.myp-back:hover { border-color: #9CA3AF; color: #111; }
+
+/* 메인 */
+.myp-main {
+  display: flex; justify-content: center;
+  padding: 60px 24px 100px;
+  animation: fadeUp 0.5s ease both;
+}
+
+.myp-container {
+  width: 100%; max-width: 520px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+
+/* 프로필 섹션 */
+.myp-profile-section {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.07);
+  padding: 40px 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+
+.myp-avatar-lg {
+  width: 76px; height: 76px; border-radius: 999px;
+  background: linear-gradient(135deg, #2563EB, #7C3AED);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(37,99,235,0.3);
+}
+
+.myp-name {
+  font-size: 1.2rem; font-weight: 700; color: #111;
+  letter-spacing: -0.02em; word-break: break-all; text-align: center;
+}
+
+.myp-badge {
+  display: inline-flex; padding: 4px 14px; border-radius: 999px;
+  background: #EFF6FF; color: #2563EB; font-size: 0.82rem; font-weight: 600;
+}
+
+/* 일반 섹션 */
+.myp-section {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.07);
+  padding: 24px 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+.myp-section-title {
+  font-size: 0.85rem; font-weight: 700; color: #9CA3AF;
+  text-transform: uppercase; letter-spacing: 0.07em;
+  margin-bottom: 16px;
+}
+
+.myp-info-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 13px 0;
+}
+.myp-info-row + .myp-info-row { border-top: 1px solid #F3F4F6; }
+.myp-info-label { font-size: 1rem; font-weight: 600; color: #374151; }
+.myp-info-value { font-size: 0.95rem; color: #6B7280; word-break: break-all; max-width: 60%; text-align: right; }
+
+/* 로그아웃 버튼 (구글 유저) */
+.myp-logout-btn {
+  width: 100% !important;
+  padding: 13px; border-radius: 10px;
+  border: 1px solid #E5E7EB; background: #fff;
+  color: #374151; font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: background 0.15s, border-color 0.15s;
+}
+.myp-logout-btn:hover { background: #F9FAFB; border-color: #9CA3AF; }
+
+/* 회원탈퇴 버튼 (일반 유저) */
+.myp-delete-btn {
+  width: 100% !important;
+  padding: 13px; border-radius: 10px;
+  border: 1.5px solid #EF4444; background: transparent;
+  color: #EF4444; font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+.myp-delete-btn:hover { background: #EF4444; color: #fff; }
+
+/* 제보 내역 */
+.myp-history-list { display: flex; flex-direction: column; }
+
+.myp-report-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0;
+}
+.myp-report-row + .myp-report-row { border-top: 1px solid #F3F4F6; }
+
+.myp-report-left { display: flex; flex-direction: column; gap: 3px; }
+.myp-report-zone { font-size: 1rem; font-weight: 600; color: #111; }
+.myp-report-time { font-size: 0.86rem; color: #9CA3AF; }
+
+.myp-report-badge {
+  padding: 4px 12px; border-radius: 999px;
+  font-size: 0.86rem; font-weight: 700;
+  white-space: nowrap; flex-shrink: 0;
+}
+
+.myp-empty {
+  font-size: 0.95rem; color: #9CA3AF;
+  text-align: center; padding: 20px 0;
+}
